@@ -1,7 +1,0 @@
-Tänne tehtiin ensimmäinen muutos.
-
-Miten git add -p toimii?
-
-Tein toisessa kloonissa tällaisen muutoksen.
-
-Alkuperäinen klooni kuittaa.
