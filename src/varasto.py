@@ -1,32 +1,26 @@
 class Varasto:
-    def __init__(self, tilavuus, alku_saldo = 0):
+    def __init__(self, tilavuus, alku_saldo=0):
+
+        self.tilavuus = 0.0
         if tilavuus > 0.0:
             self.tilavuus = tilavuus
 
-        else:
-            # virheellinen, nollataan
-            self.tilavuus = 0.0
+        self.saldo = 0.0
 
-        if alku_saldo < 0.0:
-            # virheellinen, nollataan
-            self.saldo = 0.0
-            if alku_saldo < 5.0:
-                print('tosi negatiivinen')
-                if alku_saldo < 7.0:
-                    print('siis ihan liian negatiivinen')
-    
-        elif alku_saldo <= tilavuus:
+        if alku_saldo in range(0, tilavuus):
             # mahtuu
             self.saldo = alku_saldo
         else:
             # täyteen ja ylimäärä hukkaan!
             self.saldo = tilavuus
 
-    # huom: ominaisuus voidaan myös laskea jotenkin hienolla ja mahtavalla tavalla. Ei tarvita erillistä kenttää viela_tilaa tms.
+    # huom: ominaisuus voidaan myös laskea. Ei tarvita erillistä kenttää viela_tilaa tms.
     def paljonko_mahtuu(self):
         return self.tilavuus - self.saldo
 
     def lisaa_varastoon(self, maara):
+        if maara < 0:
+            return
         if maara <= self.paljonko_mahtuu():
             self.saldo = self.saldo + maara
         else:
@@ -42,35 +36,6 @@ class Varasto:
             return kaikki_mita_voidaan
 
         self.saldo = self.saldo - maara
-
-        # liikaa lauseita samassa funktiossa
-
-        if self.saldo == 0.0:
-            print('saldo tyhjä')
-        if self.saldo > 0.0:
-            print('vielä tilaa')
-
-        aku = 'ankka'
-        lista = []
-
-        [lista.append(aku) for x in range(0, 6)]
-
-        print(lista)
-
-        pituus = len(lista)
-
-        print(pituus)
-
-        beku = 'ankka'
-        lista = []
-
-        [lista.append(beku) for x in range(0, 6)]
-
-        print(lista)
-
-        pituus = len(lista)
-
-        print(pituus)
 
         return maara
 
