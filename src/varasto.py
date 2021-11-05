@@ -11,7 +11,8 @@ class Varasto:
             # mahtuu
             self.saldo = min(alku_saldo, tilavuus)
 
-    # huom: ominaisuus voidaan myös laskea ihan fantsusti vaan tosi kiva. Ei tarvita erillistä kenttää viela_tilaa tms.
+    # huom: ominaisuus voidaan myös laskea.
+    # Ei tarvita erillistä kenttää viela_tilaa tms.
     def paljonko_mahtuu(self):
         return self.tilavuus - self.saldo
 
